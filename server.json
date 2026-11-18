@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.santex85/domain-intel-mcp",
+  "title": "Domain Intel (DNS, SSL, RDAP, email security)",
+  "description": "Domain health and security report: DNS, SSL/TLS, RDAP/WHOIS, SPF/DMARC/MTA-STS, HTTP/HSTS.",
+  "repository": {
+    "url": "https://github.com/santex85/domain-intel-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/santex85/domain-intel-mcp/releases/download/v0.1.0/domain-intel-mcp.mcpb",
+      "version": "0.1.0",
+      "fileSha256": "bf40d0622fcc4c59b8234637a3cfae0baecb4929adde4bb5a5b34be85a4e01d0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
