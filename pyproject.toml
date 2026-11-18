@@ -1,0 +1,12 @@
+[project]
+name = "domain-intel-mcp"
+version = "0.1.0"
+description = "Domain health and security report: DNS, SSL/TLS, RDAP/WHOIS, SPF/DMARC/MTA-STS, HTTP/HSTS."
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.9,<2",
+    "httpx>=0.27",
+    "dnspython>=2.6",
+    "cryptography>=42",
+    "tldextract>=5.3",
+]

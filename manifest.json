@@ -1,0 +1,74 @@
+{
+  "manifest_version": "0.4",
+  "name": "domain-intel-mcp",
+  "display_name": "Domain Intel (DNS, SSL, RDAP, email security)",
+  "version": "0.1.0",
+  "description": "Domain health and security report: DNS, SSL/TLS, RDAP/WHOIS, SPF/DMARC/MTA-STS, HTTP/HSTS.",
+  "long_description": "Health and security report for any domain: DNS records, the SSL/TLS certificate, RDAP registration data, email anti-spoofing setup (SPF, DMARC, MTA-STS, TLS-RPT, BIMI) and homepage HTTP behaviour (redirects, HSTS), ending with a list of detected issues. No API key needed.",
+  "author": {
+    "name": "santex85",
+    "url": "https://github.com/santex85"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santex85/domain-intel-mcp"
+  },
+  "homepage": "https://github.com/santex85/domain-intel-mcp",
+  "support": "https://github.com/santex85/domain-intel-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "dns",
+    "ssl",
+    "whois",
+    "rdap",
+    "dmarc"
+  ],
+  "server": {
+    "type": "uv",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "src/server.py"
+      ],
+      "env": {
+        "MCP_TRANSPORT": "stdio"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "check_domain",
+      "description": "Full health and security report for one domain."
+    },
+    {
+      "name": "check_domains",
+      "description": "Same report as check_domain for up to 20 domains at once (duplicates are removed)."
+    },
+    {
+      "name": "email_security",
+      "description": "Email deliverability/anti-spoofing check: SPF (record, 'all' qualifier, DNS lookup count >10), DMARC (policy, rua), MTA-STS, MX records, plus the issues found. Useful before cold outreach or when emails land in spam."
+    },
+    {
+      "name": "ssl_certificate",
+      "description": "SSL/TLS certificate details for a host: issuer, subject names, valid from/to, days to expiry, chain validity, hostname match and negotiated TLS protocol."
+    },
+    {
+      "name": "domain_expiry",
+      "description": "Registration and certificate expiry for up to 20 domains: registrar, domain expiry date and days left, SSL expiry and days left. Handy for monitoring a portfolio of domains."
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}
