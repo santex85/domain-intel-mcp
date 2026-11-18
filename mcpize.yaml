@@ -1,0 +1,10 @@
+version: 1
+name: domain-intel-mcp
+description: Domain health and security checks - DNS, SSL/TLS certificate, RDAP/WHOIS registration and expiry, SPF/DMARC/MTA-STS email security, HTTP/HSTS, with detected issues.
+runtime: python
+entry: src/server.py
+build:
+  install: python -m venv .venv && .venv/bin/pip install --no-cache-dir -r requirements.txt
+startCommand:
+  type: http
+  command: .venv/bin/python src/server.py
